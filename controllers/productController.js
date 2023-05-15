@@ -33,10 +33,24 @@ const getProductByCategory = async (req, res) => {
 };
 
 // Get product by id
-const getProductById = async (req, res) => {
+// const getProductById = async (req, res) => {
+//   try {
+//     const productId = req.params.id;
+//     const product = await Product.findById(productId);
+//     if (!product) {
+//       return res.status(404).send({ error: 'Product not found' });
+//     }
+//     res.status(200).send(product);
+//   } catch (error) {
+//     res.status(500).send({ error: error.message });
+//   }
+// };
+const getProductById = async (req, res,next) => {
   try {
     const productId = req.params.id;
+    console.log("productId:", productId);
     const product = await Product.findById(productId);
+    console.log("product:", product);
     if (!product) {
       return res.status(404).send({ error: 'Product not found' });
     }
@@ -45,6 +59,12 @@ const getProductById = async (req, res) => {
     res.status(500).send({ error: error.message });
   }
 };
+
+
+
+
+
+
 
 // Get product by name
 const getProductByName = async (req, res) => {

@@ -39,7 +39,8 @@ const cors = require('cors');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
-
+ const userRoutes = require("./routes/User");
+ const authMiddleware = require("./middleware/Auth");
 const app = express();
 
 // Middleware
@@ -58,6 +59,7 @@ mongoose.connect('mongodb+srv://i200911:eeman1@cluster0.370bjsq.mongodb.net/?ret
 app.use('/api/products', productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
+app.use("/api/user", userRoutes);
 app.get("/",(req,res)=>{
   res.send("hellooooooooooooooooo")
 })

@@ -2,10 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const authMiddleware = require("../middleware/Auth");
-const { getAllUsers } = require("../controllers/UserController");
+// const { getAllUsers } = require("../controllers/UserController");
 
-// Get all users
-router.get("/users", authMiddleware, getAllUsers);
+
 
 module.exports = router;
 
@@ -17,6 +16,8 @@ const {
   } = require('../controllers/UserController');
 
 // const authMiddleware = require('../Middleware/Auth');
+// Get all users
+router.get("/users", authMiddleware, getAllUsers);
 
   // Register a new user
 router.post('/register', registerUser);
@@ -25,12 +26,12 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 module.exports = router;
 //Edit a user
-// router.patch('/edit/:userId', authMiddleware(['student']), editUser);
+// router.patch('/edit/:userId', authMiddleware(['firstorder']), editUser);
 
 
 
 // Get all users
-// router.get('/', authMiddleware(['employee']), getAllUsers);
+// router.get('/', authMiddleware, getAllUsers);
 
 // module.exports = router;
   

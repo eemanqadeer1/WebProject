@@ -17,7 +17,7 @@ router.get('/products', getAllProducts);
 router.get('/category/:category', getProductByCategory);
 
 // Get a product by ID
-router.get('/productId/:productId',getProductById);
+router.get('/:id',getProductById);
 
 // Get products by name
 router.get('/name/:name', getProductByName);

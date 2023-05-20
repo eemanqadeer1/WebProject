@@ -1,30 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {
-    createOrder,
-    getOrders,
-    getOrderById,
-    updateOrderStatus,
-    cancelOrder,
-  }= require('../controllers/orderController');
-// const orderController = require('../controllers/orderController');
-// const authMiddleware = require('../middleware/authMiddleware');
+const orderController = require('../controllers/orderController');
 
- 
-  
-// Create a new order
-router.post('/',  createOrder);
+// GET /orders - Get all orders
+router.get('/orders', orderController.getOrders);
 
-// Get the user's orders
-router.get('/',getOrders);
-
-// Get an order by ID
-router.get('/:orderId', getOrderById);
-
-// Update the status of an order
-router.put('/:orderId',  updateOrderStatus);
-
-// Cancel an order
-router.delete('/:orderId', cancelOrder);
+// POST /orders - Create a new order
+router.post('/orders', orderController.createOrder);
 
 module.exports = router;
